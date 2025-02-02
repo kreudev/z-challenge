@@ -1,0 +1,29 @@
+/* Línea negra animada */
+.loader-line {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: black;
+  animation: loading-bar 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* Animación de la barra */
+@keyframes loading-bar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Ocultar el loader después de la animación */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease-out,
+    visibility 0.5s ease-out;
+}

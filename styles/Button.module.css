@@ -1,0 +1,25 @@
+.button {
+  all: unset;
+  height: 56px;
+  width: 260px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.button.default {
+  background-color: #1b1a18;
+  border: 1px solid #1b1a18;
+  color: white;
+}
+
+.button.outline {
+  color: #1b1a18;
+  border: 1px solid #1b1a18;
+}
+
+.button.fullWidth {
+  width: 100%;
+}

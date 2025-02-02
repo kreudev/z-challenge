@@ -1,0 +1,19 @@
+.searchBar__input_wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.searchBar__input {
+  all: unset;
+  width: 100%;
+  border-bottom: 0.5px solid #000;
+  padding-bottom: 5px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.searchBar__input::placeholder {
+  color: #aaaaaa;
+}

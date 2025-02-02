@@ -1,0 +1,142 @@
+.phoneCard {
+  padding: 20px;
+  border: 1px solid #000;
+  color: black;
+  box-sizing: border-box;
+  height: 300px;
+  font-size: 12px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Capa de fondo animada */
+.phoneCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: black;
+  transition: height 0.8s cubic-bezier(0.65, 0, 0.35, 1); /*  Animación suave (lento al inicio y final) */
+  z-index: 0;
+}
+
+/*  Activa la animación en hover */
+.phoneCard:hover::after {
+  height: 100%;
+}
+
+.phoneCard:hover {
+  color: white;
+}
+
+/*  Mantiene el contenido por encima del fondo animado */
+.phoneCard * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Para 5 columnas */
+@media (min-width: 1557px) {
+  .phoneCard:nth-child(n + 6) {
+    border-top: none;
+  }
+
+  .phoneCard:not(:nth-child(5n + 1)) {
+    border-left: none;
+  }
+}
+
+/* Para 4 columnas */
+@media (max-width: 1556px) and (min-width: 1257px) {
+  .phoneCard:nth-child(n + 5) {
+    border-top: none;
+  }
+
+  .phoneCard:not(:nth-child(4n + 1)) {
+    border-left: none;
+  }
+}
+
+/* Para 3 columnas */
+@media (max-width: 1256px) and (min-width: 957px) {
+  .phoneCard:nth-child(n + 4) {
+    border-top: none;
+  }
+
+  .phoneCard:not(:nth-child(3n + 1)) {
+    border-left: none;
+  }
+}
+
+/* Para 2 columnas */
+@media (max-width: 956px) and (min-width: 657px) {
+  .phoneCard:nth-child(n + 3) {
+    border-top: none;
+  }
+
+  .phoneCard:not(:nth-child(2n + 1)) {
+    border-left: none;
+  }
+}
+
+/* Para 1 columna */
+@media (max-width: 656px) {
+  .phoneCard {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+  }
+
+  .phoneCard:not(:first-child) {
+    border-top: none;
+  }
+
+  .phoneCard:last-child {
+    border-bottom: 1px solid #000;
+  }
+}
+
+.phoneCard_image_wrapper {
+  width: 100%;
+  height: 175px;
+  position: relative;
+}
+
+.phoneCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.phoneCard_description_wrapper {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 20px;
+}
+
+.phoneCard_description_item_left {
+  margin-left: 20px;
+}
+
+.phoneCard_description_item_right {
+  margin-right: 20px;
+}
+
+.phoneCard_description_brand {
+  font-size: 10px;
+  color: #79736d;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.phoneCard_description_name {
+  text-transform: uppercase;
+}

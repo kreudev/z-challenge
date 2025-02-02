@@ -1,40 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 📱 Zara Challenge - Tienda de Móviles
 
-## Getting Started
+## 📌 Descripción
+Este proyecto es una tienda de móviles desarrollada con **Next.js**, utilizando **React.js** para la UI y gestionando estado con un **contexto global**. La aplicación permite a los usuarios buscar productos, visualizar detalles y agregar productos al carrito.
 
-First, run the development server:
+Cuenta con **pruebas unitarias e integración** utilizando **Jest y React Testing Library**, además de herramientas de linting y formateo del código para mantener la calidad del código.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Instalación y Configuración
+
+### Clonar el repositorio
+```sh
+ git clone https://github.com/tu-repo/zara-challenge.git
+ cd zara-challenge
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Instalar dependencias
+Ejecuta el siguiente comando para instalar todas las dependencias necesarias:
+```sh
+ npm install
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Variables de entorno
+Crea un archivo `.env` en la raíz del proyecto y añade las variables necesarias:
+```env
+NEXT_PUBLIC_API_URL=https://tu-api.com
+API_KEY=tu-clave-api
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Ejecutar la aplicación en modo desarrollo
+```sh
+ npm run dev
+```
+La aplicación se ejecutará en `http://localhost:3000`
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Estructura del Proyecto
 
-## Learn More
+La estructura del proyecto sigue una organización modular:
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── __mocks__/       # Mocks para Jest
+├── components/      # Componentes reutilizables
+│   ├── __test__/    # Pruebas unitarias de los componentes
+│   ├── Button.jsx
+│   ├── CartItem.jsx
+│   ├── Layout.jsx
+│   ├── Navbar.jsx
+│   ├── PhoneCard.jsx
+│   ├── SearchBar.jsx
+│   ├── SimilarProducts.jsx
+│   ├── Specifications.jsx
+├── context/         # Context API para gestión de estado
+│   ├── CartContext.js
+├── hooks/           # Hooks personalizados
+│   ├── useDebounce.js 
+├── pages/           # Páginas de la aplicación
+│   ├── __test__/    # Pruebas unitarias de las páginas
+│   ├── index.js     # Página principal
+│   ├── cart.js      # Carrito de compras
+│   ├── phone/       # Detalles del producto
+│       ├── [id].js
+├── public/          # Archivos estáticos como imágenes y logos
+├── services/        # API calls
+│   ├── api.js
+├── styles/          # Archivos de estilos (CSS Modules y Globales)
+│   ├── Button.module.css
+│   ├── Cart.module.css
+│   ├── ProductDetail.module.css
+│   ├── PhoneCard.module.css
+│   ├── SearchBar.module.css
+│   ├── SimilarProducts.module.css
+│   ├── Specifications.module.css
+│   ├── globals.css 
+│   ├── loader.css
+├── .babelrc         # Configuración de Babel
+├── .eslintrc.json   # Configuración de ESLint
+├── jest.config.js   # Configuración de Jest
+├── jest.setup.js    # Setup para Jest
+├── next.config.js   # Configuración de Next.js
+├── package.json     # Dependencias y scripts del proyecto
+├── README.md        # Documentación
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📌 Archivos Clave, Configuración y Funcionalidades Principales
 
-## Deploy on Vercel
+### 📜 `next.config.mjs`
+Este archivo contiene la configuración de Next.js:
+- **Variables de entorno** (`NEXT_PUBLIC_API_URL`, `API_KEY`).
+- **Optimización de compilación** (compresión solo en producción).
+- **Minificación de código con SWC**.
+- **Configuración de Webpack** para mostrar logs dependiendo del entorno.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+###  SSR (Server-Side Rendering) para llamadas a la API
+- Se usa getServerSideProps en las páginas para obtener datos del servidor en cada request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+###  Búsqueda en tiempo real con debounce
+- Se usa el hook `useDebounce.js` para evitar múltiples llamadas a la API mientras el usuario escribe.
+
+###  Gestión de carrito con Context API
+- Se usa CartContext.js para manejar el estado global del carrito.
+- Métodos: addToCart(), removeFromCart().
+
+---
+
+## ⚙️ Configuración de Desarrollo
+
+### Linter y Formateo
+Se ha configurado **ESLint** y **Prettier** para mantener un código limpio y legible.
+
+- Comando para formatear el código:
+  ```sh
+  npm run format
+  ```
+
+---
+
+## 🧪 Testing
+Este proyecto cuenta con pruebas unitarias e integración usando **Jest y React Testing Library**.
+
+### Correr todos los tests
+```sh
+ npm run test
+```
+
+### Estructura de pruebas
+- **Pruebas unitarias** en `components/__test__/` para componentes individuales.
+- **Pruebas de integración** en `pages/__test__/` para probar flujos completos en las páginas principales como Index, Cart y ProductDetail.
+- **Mocks** en `__mocks__/` para simular dependencias externas.
