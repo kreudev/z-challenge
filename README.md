@@ -11,8 +11,8 @@ Cuenta con **pruebas unitarias e integración** utilizando **Jest y React Testin
 
 ### Clonar el repositorio
 ```sh
- git clone https://github.com/tu-repo/zara-challenge.git
- cd zara-challenge
+ git clone https://github.com/kreudev/z-challenge
+ cd z-challenge
 ```
 
 ### Instalar dependencias
@@ -24,8 +24,8 @@ Ejecuta el siguiente comando para instalar todas las dependencias necesarias:
 ### Variables de entorno
 Crea un archivo `.env` en la raíz del proyecto y añade las variables necesarias:
 ```env
-NEXT_PUBLIC_API_URL=https://tu-api.com
-API_KEY=tu-clave-api
+NEXT_PUBLIC_API_URL=https://prueba-tecnica-api-tienda-moviles.onrender.com
+API_KEY=87909682e6cd74208f41a6ef39fe4191
 ```
 
 ### Ejecutar la aplicación en modo desarrollo
